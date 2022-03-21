@@ -22,7 +22,7 @@
 
         - name: Print set SBD devices
           debug:
-            var: ha_cluster.sbd_devices
+            var: ha_cluster_sbd_devices
 
         - block:
             - name: Run the role

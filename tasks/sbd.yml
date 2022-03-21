@@ -5,7 +5,7 @@
         - name: Probe SBD devices
           command:
             cmd: sbd -d {{ item | quote }} dump
-          loop: "{{ ha_cluster.sbd_devices | default([]) }}"
+          loop: "{{ ha_cluster_sbd_devices | default([]) }}"
           register: __ha_cluster_check_sbd_devices_result
           changed_when: no
           # return_code == 0 means the disk is initialized already
@@ -55,7 +55,7 @@
         node_watchdog: "{{
             ha_cluster.sbd_watchdog | default('/dev/watchdog')
           }}"
-        node_devices: "{{ ha_cluster.sbd_devices | default([]) }}"
+        node_devices: "{{ ha_cluster_sbd_devices | default([]) }}"
       register: __ha_cluster_distribute_sbd_config
 
   when: ha_cluster_sbd_enabled

@@ -47,7 +47,7 @@
     # - qdevice is not used
     __ha_cluster_sbd_needs_atb: "{{
         ha_cluster_sbd_enabled
-        and not ha_cluster.sbd_devices | default([])
+        and not ha_cluster_sbd_devices | default([])
         and __ha_cluster_all_node_names | length is even
         and not __ha_cluster_qdevice_in_use
       }}"
