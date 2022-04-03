@@ -17,7 +17,7 @@
         - ha_cluster_sbd_enabled
         - >
           ansible_play_hosts_all
-          | map('extract', hostvars, ['ha_cluster', 'sbd_devices'])
+          | map('extract', hostvars, ['ha_cluster_sbd_devices'])
           | map('default', [], true)
           | map('length') | unique | length > 1
       run_once: yes
